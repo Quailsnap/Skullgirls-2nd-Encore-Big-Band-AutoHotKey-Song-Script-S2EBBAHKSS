@@ -8,15 +8,15 @@ Process, priority, , High
 //
 // Big Band Skullgirls Script
 // by Whale
-// v0.2.5
+// v0.2.6
 //
 //==================
 
 //==================
 // "How do I use this?"
 // 1. Install AutoHotKey
-// 2. Edit this script's buttons (what's LP, MP, etc bound to)
-// ... to match yours, somehow. Good luck with that!
+// 2. Edit this script's buttons for LP, MK, etc. Ctrl+F the phrase ...
+//    ... 'change your keys' to find where to do this.
 // 3. Edit the hotkeys (default: Numpad Keys) if you want to!
 // 4. Numpad0, by default, reloads things and stops any ongoing songs.
 // 5. Enter new songs at the bottom. Function documentation will guide your way!
@@ -160,6 +160,7 @@ play_note(keys, beat:=1, octave:=0)
 	full_delay := global full_delay
 	micro := global micro
 	
+	// handle octaves
 	if (octave>0)
 	{
 		Send {w down}
@@ -171,6 +172,11 @@ play_note(keys, beat:=1, octave:=0)
 		sleep, micro
 	}
 	
+	// match keys, send presses
+	// THIS is where you change your keys, ie:
+	// Send {j down} (MY LP KEY) ...
+	// If you had 's' as your LP key ...
+	// Send {s down}
 	if (keys="lp" or keys="F")
 	{
 		Send {j down}
